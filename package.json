@@ -9,7 +9,11 @@
     "test": "npm run test:mocha && npm run test:visual && npm run test:e2e",
     "test:mocha": "bin/mocha-test",
     "test:visual": "npm run drop-db && npm run seed-db && cd test/visual && rm -rf backstop_data/bitmaps_test && backstop test",
-    "test:visual:approve": "cd test/visual && backstop approve"
+    "test:visual:approve": "cd test/visual && backstop approve",
+    "webdriver:update": "webdriver-manager update",
+    "test:e2e:chrome": "npm run drop-db && rm -rf test/e2e/html-report/ && npm run webdriver:update && protractor test/e2e/protractorChrome.conf.js",
+    "test:e2e:firefox": "npm run drop-db && rm -rf test/e2e/html-report/ && npm run webdriver:update && protractor test/e2e/protractorFirefox.conf.js",
+    "test:e2e": "npm run test:e2e:chrome && npm run test:e2e:firefox"
   },
   "dependencies": {
     "body-parser": "~1.17.1",

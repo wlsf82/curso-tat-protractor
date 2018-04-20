@@ -1,0 +1,106 @@
+{
+  "id": "curso_backstop_tat",
+  "viewports": [
+    {
+      "label": "desktop",
+      "width": 1280,
+      "height": 1024
+    },
+    {
+      "label": "table",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "onBeforeScript": "chromy/onBefore.js",
+  "onReadyScript": "chromy/onReady.js",
+  "scenarios": [
+    {
+      "label": "Homepage with items",
+      "url": "http://localhost:4001/",
+      "readySelector": ".item-card",
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Create item page",
+      "url": "http://localhost:4001/",
+      "readySelector": "a[href='items/create']",
+      "clickSelector": "a[href='items/create']",
+      "postInteractionWait": ".create-container",
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Item page",
+      "url": "http://localhost:4001/",
+      "readySelector": ".item-card",
+      "clickSelector": ".item-view",
+      "postInteractionWait": ".single-item-container",
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Homepage empty",
+      "url": "http://localhost:4001/",
+      "readySelector": ".item-card",
+      "removeSelectors": [".item-card"],
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Delete item confirmation page",
+      "url": "http://localhost:4001/",
+      "readySelector": ".delete-button a",
+      "clickSelector": ".delete-button a",
+      "postInteractionWait": ".delete-item-confirmation",
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Create item page - required fields",
+      "url": "http://localhost:4001/items/create",
+      "readySelector": ".submit-button",
+      "clickSelector": ".submit-button",
+      "postInteractionWait": ".error",
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Update item page",
+      "url": "http://localhost:4001",
+      "onReadyScript": "chromy/custom/goToEditItemPage.js",
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "header component",
+      "url": "http://localhost:4001",
+      "readySelector": "#title-container",
+      "selectors": ["#title-container"],
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Create item page - image preview",
+      "url": "http://localhost:4001/items/create",
+      "onReadyScript": "chromy/custom/fillImageUrl.js",
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": [],
+  "engine": "chrome",
+  "engineFlags": [],
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

@@ -1,0 +1,48 @@
+<div class="create-container">
+    <div class="create-card">
+        <div class="create-column image-preview-container">
+            <img id="created-image" src="" />
+        </div>
+        <div class="divider">
+        </div>
+        <div class="create-column create-item-form-container">
+            <h2>Crie um novo item</h2>
+            <form class="input-form" action="/items/create" method="post" >
+                <label class="form-label" for="title">Título</label>
+                <input id="title-input" name="title" maxlength="50" value="{{ newItem.title }}"/>
+                {{#with newItem.errors.title as | error |}}
+                    <span class="error">{{ error.message }}</span>
+                {{/with}}
+
+                <label class="form-label" for="description">Descrição</label>
+                <textarea id="description-input" name="description">{{ newItem.description }}</textarea>
+                {{#with newItem.errors.description as | error |}}
+                    <span class="error">{{ error.message }}</span>
+                {{/with}}
+
+                <label class="form-label" for="imageUrl">URL da imagem</label>
+                <input id="imageUrl-input" name="imageUrl" oninput="handleChange" value="{{ newItem.imageUrl }}"/>
+                {{#with newItem.errors.imageUrl as | error |}}
+                    <span class="error">{{ error.message }}</span>
+                {{/with}}
+
+                <div class="form-navigation">
+                    <a href="/">
+                        <img class="back-arrow" src="/img/back.svg" alt="back">
+                    </a>
+                    <button class="button submit-button" id="submit-button" type="submit">
+                        <p>Criar</p>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    const img = document.getElementById("created-image");
+    function handleChange(e) {
+        const path = e.target.value.match(/^(https*:\/\/)/i) ? "" : "http://";
+        img.src = path + e.target.value;
+    }
+    document.getElementById("imageUrl-input").oninput = handleChange;
+</script>

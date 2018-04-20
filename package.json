@@ -1,0 +1,33 @@
+{
+  "name": "tat",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "drop-db": "node ./bin/drop-database",
+    "seed-db": "node ./bin/seed-database",
+    "start": "node ./bin/www",
+    "test": "npm run test:mocha && npm run test:visual && npm run test:e2e",
+    "test:mocha": "bin/mocha-test",
+    "test:visual": "npm run drop-db && npm run seed-db && cd test/visual && rm -rf backstop_data/bitmaps_test && backstop test",
+    "test:visual:approve": "cd test/visual && backstop approve"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "eslint": "^4.9.0",
+    "express": "~4.15.2",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.11.13",
+    "morgan": "~1.8.1"
+  },
+  "devDependencies": {
+    "backstopjs": "^3.1.19",
+    "chai": "^4.1.2",
+    "eslint-config-google": "^0.9.1",
+    "jasmine-spec-reporter": "^4.2.1",
+    "jsdom": "^9.12.0",
+    "mocha": "^3.0.0",
+    "supertest": "^3.0.0",
+    "webdriverio": "^4.2.3"
+  }
+}

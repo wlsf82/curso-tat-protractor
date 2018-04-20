@@ -1,0 +1,6 @@
+node_modules
+.DS_Store
+package-lock.json
+test/visual/backstop_data/bitmaps_reference
+test/visual/backstop_data/bitmaps_test
+test/visual/backstop_data/html_report

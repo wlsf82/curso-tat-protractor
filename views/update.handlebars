@@ -1,0 +1,47 @@
+<div class="create-container">
+    <div class="create-card">
+        <div class="create-column">
+            <img id="created-image" src="{{ item.imageUrl}}" alt="image to save">
+        </div>
+        <div class="divider">
+        </div>
+        <div class="create-column">
+            <h2 class="form-title">Edição de item</h2>
+            <form class="input-form" action="/items/{{ item._id }}/update" method="post" >
+                <label class="form-label" for="title">Título</label>
+                <input id="title-input" name="title" maxlength="50" value="{{ item.title }}"/>
+                {{#with updatedItem.errors.title as | error |}}
+                    <span class="error">{{ error.message }}</span>
+                {{/with}}
+
+                <label class="form-label" for="description">Descrição</label>
+                <textarea id="description-input" name="description">{{ item.description }}</textarea>
+                {{#with updatedItem.errors.description as | error |}}
+                    <span class="error">{{ error.message }}</span>
+                {{/with}}
+
+                <label class="form-label" for="imageUrl">URL da imagem</label>
+                <input id="imageUrl-input" name="imageUrl" oninput="handleChange" value="{{ item.imageUrl}}"/>
+                {{#with updatedItem.errors.imageUrl as | error |}}
+                    <span class="error">{{ error.message }}</span>
+                {{/with}}
+
+                <div class="form-navigation">
+                    <a href="/items/{{ item._id }}">
+                        <img class="back-arrow" src="/img/back.svg" alt="back">
+                    </a>
+                    <button class="button submit-button" id="submit-button" type="submit">
+                        <p>Atualizar</p>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    const img = document.getElementById("created-image");
+    function handleChange(e) {
+        img.src = e.target.value;
+    }
+    document.getElementById('imageUrl-input').oninput = handleChange;
+</script>

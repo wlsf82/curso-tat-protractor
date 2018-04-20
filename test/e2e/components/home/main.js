@@ -1,11 +1,11 @@
 const ItemsContainerComponent = require("./itemsContainer");
 const NavigationComponent = require("./navigation");
 
-class Homepage {
+class Home {
     constructor() {
         this.itemsContainer = new ItemsContainerComponent();
         this.navigation = new NavigationComponent();
     }
 }
 
-module.exports = Homepage;
+module.exports = Home;

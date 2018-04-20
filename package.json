@@ -1,7 +1,6 @@
 {
   "name": "tat",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "drop-db": "node ./bin/drop-database",
     "seed-db": "node ./bin/seed-database",

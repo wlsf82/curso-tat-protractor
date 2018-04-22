@@ -6,6 +6,7 @@ const CreateItemPage = require("../page-objects/createItem");
 
 // Components are defined after Page Objects
 const HeaderComponent = require("../components/header/main");
+const HomeComponent = require("../components/home/main");
 
 // Constants are defined after components
 const constants = require("../constants");
@@ -16,6 +17,7 @@ describe("given I'm at the relative url 'items/create'", () => {
 
     // Components are instantiated after Page Objects
     const header = new HeaderComponent();
+    const home = new HomeComponent();
 
     // Single line beforeEach arrow function
     beforeEach(() => browser.get(createItemPage.relativeUrl));
@@ -122,6 +124,31 @@ describe("given I'm at the relative url 'items/create'", () => {
                     .errors
                     .count()
             ).toBe(3);
+        });
+    });
+
+    describe("when I fill the form with valid data and submit", () => {
+        const newItem = {
+            title: "test item",
+            description: "foo bar baz",
+            imageUrl: "http://localhost:4001/img/logo.svg"
+        };
+
+        beforeEach(() => {
+            createItemPage
+                .container
+                .formContainer
+                .fillFormWithDataAndSubmit(newItem);
+        });
+
+        it("then I'm redirected to the home page and an item with the provided title is displayed", () => {
+            helper.waitForUrlToBeEqualToExpectedUrl(browser.baseUrl);
+            helper.waitForTextToBePresentInElement(
+                home
+                    .itemsContainer
+                    .container,
+                newItem.title
+            );
         });
     });
 });

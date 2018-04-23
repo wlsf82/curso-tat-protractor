@@ -38,7 +38,7 @@ describe("given I'm at the relative url 'items/create'", () => {
             });
 
             it("is rendered based on the provided image url path", () => {
-                const imagePreview = element(by.css(`img[src='${constants.IMAGE_URL}']`))
+                const imagePreview = element(by.css(`.create-container .image-preview-container img[src='${constants.IMAGE_URL}']`));
 
                 helper.waitForElementVisibility(imagePreview);
             });

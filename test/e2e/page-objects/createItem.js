@@ -6,9 +6,9 @@ class CreateItem {
     constructor() {
         this.relativeUrl = "items/create";
 
-        this.form = new FormComponent();
         this.header = new HeaderComponent();
         this.imagePreviewContainer = new ImagePreviewContainerComponent();
+        this.form = new FormComponent();
     }
 }
 

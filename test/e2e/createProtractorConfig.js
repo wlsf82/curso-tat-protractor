@@ -22,17 +22,10 @@ module.exports = (providedConfig) => {
                 consolidate: true,
                 takeScreenshotsOnlyOnFailures: true,
             }));
-
             afterEach(() => {
                 browser.manage().deleteAllCookies();
                 return browser.executeScript("sessionStorage.clear(); localStorage.clear();");
             });
-        },
-        jasmineNodeOpts: {
-            onComplete: null,
-            isVerbose: false,
-            showColors: true,
-            includeStackTrace: true,
         },
     };
 

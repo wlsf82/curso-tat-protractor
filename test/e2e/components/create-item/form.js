@@ -7,9 +7,9 @@ class Form {
         this.titleField = this.container.element(by.id("title-input"));
         this.descriptionField = this.container.element(by.id("description-input"));
         this.imageUrlField = this.container.element(by.id("imageUrl-input"));
-        this.errors = element.all(by.css(".create-container form .error"));
         this.backButton = this.container.element(by.css(".form-navigation .back-arrow"));
         this.createButton = this.container.element(by.css(".form-navigation #submit-button"));
+        this.errors = element.all(by.css(".create-container .create-item-form-container form .error"));
     }
 
     fillFormWithDataAndSubmit(data) {

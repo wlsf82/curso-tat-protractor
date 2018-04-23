@@ -8,9 +8,9 @@ describe("given I'm at the home page", () => {
     beforeEach(() => browser.get(""));
 
     describe("when I click the 'add new item' button", () => {
-        it("then I'm redirected to the relative URL 'items/create'", () => {
-            helper.clickWhenClickable(home.navigation.addNewItemButton);
+        beforeEach(() => helper.clickWhenClickable(home.navigation.addNewItemButton));
 
+        it("then I'm redirected to the relative URL 'items/create'", () => {
             helper.waitForUrlToBeEqualToExpectedUrl(`${browser.baseUrl}items/create`);
         });
     });

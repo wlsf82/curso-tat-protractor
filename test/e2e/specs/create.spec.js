@@ -3,15 +3,11 @@ const helper = require("protractor-helper");
 const CreateItemPage = require("../page-objects/createItem");
 const HomePage = require("../page-objects/home");
 
-const HeaderComponent = require("../components/header/main");
-
 const constants = require("../constants");
 
 describe("given I'm at the relative url 'items/create'", () => {
     const createItemPage = new CreateItemPage();
     const homePage = new HomePage();
-
-    const header = new HeaderComponent();
 
     beforeEach(() => browser.get(createItemPage.relativeUrl));
 
@@ -54,7 +50,7 @@ describe("given I'm at the relative url 'items/create'", () => {
     });
 
     describe("when I click the header's logo", () => {
-        beforeEach(() => helper.clickWhenClickable(header.logo));
+        beforeEach(() => helper.clickWhenClickable(createItemPage.header.logo));
 
         it("then I'm redirected to the homepage", () => {
             helper.waitForUrlToBeEqualToExpectedUrl(browser.baseUrl);

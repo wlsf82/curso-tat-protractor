@@ -3,10 +3,10 @@ const helper = require("protractor-helper");
 
 // Page Objects are defined after external libs
 const CreateItemPage = require("../page-objects/createItem");
+const HomePage = require("../page-objects/home");
 
 // Components are defined after Page Objects
 const HeaderComponent = require("../components/header/main");
-const HomeComponent = require("../components/home/main");
 
 // Constants are defined after components
 const constants = require("../constants");
@@ -14,10 +14,10 @@ const constants = require("../constants");
 describe("given I'm at the relative url 'items/create'", () => {
     // Page Objects are instantiated first
     const createItemPage = new CreateItemPage();
+    const homePage = new HomePage();
 
     // Components are instantiated after Page Objects
     const header = new HeaderComponent();
-    const home = new HomeComponent();
 
     // Single line beforeEach arrow function
     beforeEach(() => browser.get(createItemPage.relativeUrl));
@@ -26,7 +26,6 @@ describe("given I'm at the relative url 'items/create'", () => {
         it("has no value in the 'src' attribute", () => {
             expect(
                 createItemPage
-                    .container
                     .imagePreviewContainer
                     .image
                     .getAttribute(constants.SRC_ATTRIBUTE)
@@ -36,7 +35,6 @@ describe("given I'm at the relative url 'items/create'", () => {
         it("doesn't render while the image URL filed is empty", () => {
             expect(
                 createItemPage
-                    .container
                     .imagePreviewContainer
                     .image
                     .isDisplayed()
@@ -49,8 +47,6 @@ describe("given I'm at the relative url 'items/create'", () => {
         beforeEach(() => {
             helper.fillFieldWithTextWhenVisible(
                 createItemPage
-                    .container
-                    .formContainer
                     .form
                     .imageUrlField,
                 constants.IMAGE_URL
@@ -61,7 +57,6 @@ describe("given I'm at the relative url 'items/create'", () => {
             it("uses the provided value in the 'src' attribute", () => {
                 expect(
                     createItemPage
-                        .container
                         .imagePreviewContainer
                         .image
                         .getAttribute(constants.SRC_ATTRIBUTE)
@@ -80,9 +75,7 @@ describe("given I'm at the relative url 'items/create'", () => {
         it("then I'm redirected to the homepage", () => {
             helper.clickWhenClickable(
                 createItemPage
-                    .container
-                    .formContainer
-                    .navigation
+                    .form
                     .backButton
             );
 
@@ -102,15 +95,11 @@ describe("given I'm at the relative url 'items/create'", () => {
         it("then three error messages are shown, one for each of the mandatory fields", () => {
             helper.clickWhenClickable(
                 createItemPage
-                    .container
-                    .formContainer
-                    .navigation
+                    .form
                     .createButton
             );
             helper.waitForElementVisibility(
                 createItemPage
-                    .container
-                    .formContainer
                     .form
                     .errors
                     .last()
@@ -118,8 +107,6 @@ describe("given I'm at the relative url 'items/create'", () => {
 
             expect(
                 createItemPage
-                    .container
-                    .formContainer
                     .form
                     .errors
                     .count()
@@ -136,16 +123,15 @@ describe("given I'm at the relative url 'items/create'", () => {
 
         beforeEach(() => {
             createItemPage
-                .container
-                .formContainer
+                .form
                 .fillFormWithDataAndSubmit(newItem);
         });
 
         it("then I'm redirected to the home page and an item with the provided title is displayed", () => {
             helper.waitForUrlToBeEqualToExpectedUrl(browser.baseUrl);
             helper.waitForTextToBePresentInElement(
-                home
-                    .itemsContainer
+                homePage
+                    .items
                     .container,
                 newItem.title
             );

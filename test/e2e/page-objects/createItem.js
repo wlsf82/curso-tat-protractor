@@ -1,11 +1,13 @@
-const CreateItemComponent = require("../components/create-item/main");
+const FormComponent = require("../components/create-item/form");
+const ImagePreviewContainerComponent = require("../components/create-item/imagePreviewContainer");
 
-class CreateItemPage {
+class CreateItem {
     constructor() {
         this.relativeUrl = "items/create";
 
-        this.container = new CreateItemComponent();
+        this.form = new FormComponent();
+        this.imagePreviewContainer = new ImagePreviewContainerComponent();
     }
 }
 
-module.exports = CreateItemPage;
+module.exports = CreateItem;

@@ -1,25 +1,18 @@
-// External libs are defined first
 const helper = require("protractor-helper");
 
-// Page Objects are defined after external libs
 const CreateItemPage = require("../page-objects/createItem");
 const HomePage = require("../page-objects/home");
 
-// Components are defined after Page Objects
 const HeaderComponent = require("../components/header/main");
 
-// Constants are defined after components
 const constants = require("../constants");
 
 describe("given I'm at the relative url 'items/create'", () => {
-    // Page Objects are instantiated first
     const createItemPage = new CreateItemPage();
     const homePage = new HomePage();
 
-    // Components are instantiated after Page Objects
     const header = new HeaderComponent();
 
-    // Single line beforeEach arrow function
     beforeEach(() => browser.get(createItemPage.relativeUrl));
 
     describe("then the image preview element", () => {
@@ -34,7 +27,6 @@ describe("given I'm at the relative url 'items/create'", () => {
     });
 
     describe("when I fill the image URL field with a valid image path", () => {
-        // Multiple lines beforeEach arrow function
         beforeEach(() => {
             helper.fillFieldWithTextWhenVisible(createItemPage.form.imageUrlField, constants.IMAGE_URL);
         });

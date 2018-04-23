@@ -7,13 +7,13 @@ module.exports = (providedConfig) => {
         specs: ["specs/*.spec.js"],
         seleniumAddress: "http://localhost:4444/wd/hub",
         onPrepare: () => {
+            browser.ignoreSynchronization = true;
             jasmine.getEnv().addReporter(new SpecReporter({
                 displayFailuresSummary: true,
                 displayFailedSpec: true,
                 displaySuiteNumber: true,
                 displaySpecDuration: true,
             }));
-            browser.ignoreSynchronization = true;
             jasmine.getEnv().addReporter(new Jasmine2HtmlReporter({
                 savePath: "test/e2e/html-report",
                 fileName: "curso-tat-protractor",

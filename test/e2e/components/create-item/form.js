@@ -12,7 +12,7 @@ class Form {
         this.errors = element.all(by.css(".create-container .create-item-form-container form .error"));
     }
 
-    fillFormWithDataAndSubmit(data) {
+    fillWithDataAndSubmit(data) {
         helper.fillFieldWithTextWhenVisible(this.titleField, data.title);
         helper.fillFieldWithTextWhenVisible(this.descriptionField, data.description);
         helper.fillFieldWithTextWhenVisible(this.imageUrlField, data.imageUrl);

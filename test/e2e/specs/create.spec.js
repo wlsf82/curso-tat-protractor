@@ -74,7 +74,7 @@ describe("given I'm at the relative url 'items/create'", () => {
             imageUrl: "http://localhost:4001/img/logo.svg"
         };
 
-        beforeEach(() => createItemPage.form.fillFormWithDataAndSubmit(newItem));
+        beforeEach(() => createItemPage.form.fillWithDataAndSubmit(newItem));
 
         it("then I'm redirected to the home page and an item with the provided title is displayed", () => {
             helper.waitForUrlToBeEqualToExpectedUrl(browser.baseUrl);

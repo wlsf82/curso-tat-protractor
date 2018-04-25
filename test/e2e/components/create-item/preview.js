@@ -1,4 +1,4 @@
-class ImagePreviewContainer {
+class Preview {
     constructor() {
         this.container = element(by.css(".create-container .image-preview-container"));
 
@@ -6,4 +6,4 @@ class ImagePreviewContainer {
     }
 }
 
-module.exports = ImagePreviewContainer;
+module.exports = Preview;

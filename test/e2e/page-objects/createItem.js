@@ -1,13 +1,13 @@
 const FormComponent = require("../components/create-item/form");
 const HeaderComponent = require("../components/header/main");
-const ImagePreviewContainerComponent = require("../components/create-item/imagePreviewContainer");
+const Preview = require("../components/create-item/preview");
 
 class CreateItem {
     constructor() {
         this.relativeUrl = "items/create";
 
         this.header = new HeaderComponent();
-        this.imagePreviewContainer = new ImagePreviewContainerComponent();
+        this.preview = new Preview();
         this.form = new FormComponent();
     }
 }

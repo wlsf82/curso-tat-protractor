@@ -13,12 +13,12 @@ describe("given I'm at the relative url 'items/create'", () => {
 
     describe("then the image preview element", () => {
         it("has no value in the 'src' attribute", () => {
-            expect(createItemPage.imagePreviewContainer.image.getAttribute(constants.SRC_ATTRIBUTE))
+            expect(createItemPage.preview.image.getAttribute(constants.SRC_ATTRIBUTE))
                 .toEqual("");
         });
 
         it("doesn't render while the image URL filed is empty", () => {
-            expect(createItemPage.imagePreviewContainer.image.isDisplayed()).not.toBe(true);
+            expect(createItemPage.preview.image.isDisplayed()).not.toBe(true);
         });
     });
 
@@ -29,7 +29,7 @@ describe("given I'm at the relative url 'items/create'", () => {
 
         describe("then the image preview element", () => {
             it("uses the provided value in the 'src' attribute", () => {
-                expect(createItemPage.imagePreviewContainer.image.getAttribute(constants.SRC_ATTRIBUTE))
+                expect(createItemPage.preview.image.getAttribute(constants.SRC_ATTRIBUTE))
                     .toEqual(constants.IMAGE_URL);
             });
 

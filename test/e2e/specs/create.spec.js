@@ -13,8 +13,7 @@ describe("given I'm at the relative url 'items/create'", () => {
 
     describe("then the image preview element", () => {
         it("has no value in the 'src' attribute", () => {
-            expect(createItemPage.preview.image.getAttribute(constants.SRC_ATTRIBUTE))
-                .toEqual("");
+            expect(createItemPage.preview.image.getAttribute(constants.SRC_ATTRIBUTE)).toEqual("");
         });
 
         it("doesn't render while the image URL filed is empty", () => {

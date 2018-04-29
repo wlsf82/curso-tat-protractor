@@ -5,7 +5,7 @@ module.exports = (providedConfig) => {
     const defaultConfig = {
         baseUrl: "http://localhost:4001/",
         specs: ["specs/*.spec.js"],
-        seleniumAddress: "http://localhost:4444/wd/hub",
+        directConnect: true,
         onPrepare: () => {
             browser.ignoreSynchronization = true;
             jasmine.getEnv().addReporter(new SpecReporter({

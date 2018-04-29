@@ -70,7 +70,7 @@ describe("given I'm at the relative url 'items/create'", () => {
         const newItem = {
             title: "test item",
             description: "foo bar baz",
-            imageUrl: "http://localhost:4001/img/logo.svg"
+            imageUrl: constants.IMAGE_URL
         };
 
         beforeEach(() => createItemPage.form.fillWithDataAndSubmit(newItem));

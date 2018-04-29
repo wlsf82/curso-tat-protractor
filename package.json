@@ -2,9 +2,9 @@
   "name": "tat",
   "version": "1.0.0",
   "license": "MIT",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/wlsf82/curso-tat-protractor"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wlsf82/curso-tat-protractor"
   },
   "scripts": {
     "drop-db": "node ./bin/drop-database",

@@ -9,7 +9,7 @@
   "scripts": {
     "drop-db": "node ./bin/drop-database",
     "seed-db": "node ./bin/seed-database",
-    "start": "node ./bin/www",
+    "start": "npm run drop-db && node ./bin/www",
     "test": "npm run test:mocha && npm run test:visual && npm run test:e2e",
     "test:mocha": "bin/mocha-test",
     "test:visual": "npm run drop-db && npm run seed-db && cd test/visual && rm -rf backstop_data/bitmaps_test && backstop test",

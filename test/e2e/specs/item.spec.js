@@ -7,7 +7,7 @@ describe("given I'm at the home page", () => {
 
     beforeEach(() => browser.get(homePage.relativeUrl));
 
-    describe("when I visit the relative URL of the first item in the home page", () => {
+    describe("when I visit the relative URL of the first item", () => {
         let firstItemRelativeUrl;
 
         beforeEach(() => {

@@ -18,7 +18,7 @@ module.exports = (providedConfig) => {
                 savePath: "test/e2e/html-report",
                 fileName: "curso-tat-protractor",
                 fixedScreenshotName: true,
-                cleanDestination: false,
+                cleanDestination: true,
                 consolidate: true,
                 takeScreenshotsOnlyOnFailures: true,
             }));

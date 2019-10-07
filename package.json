@@ -20,13 +20,13 @@
     "test:e2e": "npm run test:e2e:chrome && npm run test:e2e:firefox"
   },
   "dependencies": {
-    "body-parser": "~1.17.1",
+    "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.3",
     "eslint": "^4.9.0",
-    "express": "~4.15.2",
+    "express": "^4.17.1",
     "express-handlebars": "^3.0.0",
     "mongoose": "^4.11.13",
-    "morgan": "~1.8.1"
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "backstopjs": "^3.1.19",
@@ -34,7 +34,7 @@
     "eslint-config-google": "^0.9.1",
     "jasmine-spec-reporter": "^4.2.1",
     "jsdom": "^9.12.0",
-    "mocha": "^3.0.0",
+    "mocha": "^6.2.1",
     "protractor": "^5.3.1",
     "protractor-flake": "^3.2.0",
     "protractor-helper": "^3.2.6",

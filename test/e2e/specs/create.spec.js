@@ -23,7 +23,7 @@ describe("given I'm at the relative url 'items/create'", () => {
 
     describe("when I fill the image URL field with a valid image path", () => {
         beforeEach(() => {
-            helper.fillFieldWithTextWhenVisible(createItemPage.form.imageUrlField, constants.IMAGE_URL);
+            helper.fillFieldWithText(createItemPage.form.imageUrlField, constants.IMAGE_URL);
         });
 
         describe("then the image preview element", () => {
@@ -41,7 +41,7 @@ describe("given I'm at the relative url 'items/create'", () => {
     });
 
     describe("when I click the back button", () => {
-        beforeEach(() => helper.clickWhenClickable(createItemPage.form.backButton));
+        beforeEach(() => helper.click(createItemPage.form.backButton));
 
         it("then I'm redirected to the homepage", () => {
             helper.waitForUrlToBeEqualToExpectedUrl(browser.baseUrl);
@@ -49,7 +49,7 @@ describe("given I'm at the relative url 'items/create'", () => {
     });
 
     describe("when I click the header's logo", () => {
-        beforeEach(() => helper.clickWhenClickable(createItemPage.header.logo));
+        beforeEach(() => helper.click(createItemPage.header.logo));
 
         it("then I'm redirected to the homepage", () => {
             helper.waitForUrlToBeEqualToExpectedUrl(browser.baseUrl);
@@ -57,7 +57,7 @@ describe("given I'm at the relative url 'items/create'", () => {
     });
 
     describe("when I submit the form without filling any field", () => {
-        beforeEach(() => helper.clickWhenClickable(createItemPage.form.createButton));
+        beforeEach(() => helper.click(createItemPage.form.createButton));
 
         it("then three error messages are shown, one for each of the mandatory fields", () => {
             helper.waitForElementVisibility(createItemPage.form.errors.last());

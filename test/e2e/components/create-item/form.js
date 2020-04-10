@@ -13,10 +13,10 @@ class Form {
     }
 
     fillWithDataAndSubmit(data) {
-        helper.fillFieldWithTextWhenVisible(this.titleField, data.title);
-        helper.fillFieldWithTextWhenVisible(this.descriptionField, data.description);
-        helper.fillFieldWithTextWhenVisible(this.imageUrlField, data.imageUrl);
-        helper.clickWhenClickable(this.createButton);
+        helper.fillFieldWithText(this.titleField, data.title);
+        helper.fillFieldWithText(this.descriptionField, data.description);
+        helper.fillFieldWithText(this.imageUrlField, data.imageUrl);
+        helper.click(this.createButton);
     }
 }
 
